@@ -38,11 +38,15 @@
 .navBrn {
     font-weight: 700;
     font-size: 1.5rem;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
 }
 .brnIcon,
-.navHighlight {
-    color: #7456F7;;
-}
+/* .navHighlight {
+    color: #7456F7;
+} */
 .brnIcon {
     font-weight: 800;
     font-size: 1.6rem
@@ -54,13 +58,14 @@
     border-radius: 50px;
     font-weight: 500;
     color:#fff;
-    background: #7355F7;
+    /* background: #7355F7; */
+    background: #01204e;
     padding: 0.5rem 1.5rem;
     margin: 0.5rem 1rem;
     transition: 0.4s;
 }
 .loginBtn:hover { 
-    background : #4B24F5
+    background : #01132d;
 }
 .navActiveClass{
     color:"red";

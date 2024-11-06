@@ -7,25 +7,26 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Typed from 'react-typed';
+import dilimg from '../../../Assets/dilimg.jpg'
 
 const Hero = () => {
     const theme = useTheme();
-
     const isMd = useMediaQuery(theme.breakpoints.up('md'), {
         defaultMatches: true,
     });
+
     return (
         <Grid container spacing={4}>
             <Grid item container xs={12} md={6} alignItems={'center'}>
-                <Box data-aos={isMd ? 'fade-right' : 'fade-up'} paddingLeft={isMd && 2} p={1}>
+                <Box data-aos={isMd ? 'fade-right' : 'fade-up'} paddingLeft={isMd && 2} p={4} >
                     <Box marginBottom={2}>
                         <Typography
                             variant="h4"
                             color="text.primary"
                             sx={{ fontWeight: 700 }}
                         >
-                            Easy Consulting{' '} <br />
-                            Start Your {' '}
+                            Your Gateway to Innovative {' '} <br />
+                            {/* and {' '} */}
                             <Typography
                                 color={'primary'}
                                 component={'span'}
@@ -35,7 +36,8 @@ const Hero = () => {
                                 }}
                             >
                                 <Typed
-                                    strings={['Business', 'Startup']}
+                                    strings={['Collaboration', 'Solutions']}
+                                    // , 'Startup']}
                                     typeSpeed={100}
                                     loop={true}
                                 />
@@ -44,9 +46,10 @@ const Hero = () => {
                     </Box>
                     <Box marginBottom={3}>
                         <Typography variant="h6" component="p" color="text.secondary">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, delectus.
+                        Explore our portal to access university services 
+                        tailored to meet industry needs, 
                             <br />
-                            Lorem ipsum dolor sit amet.
+                        Fostering collaboration and driving success. Let’s innovate together!
                         </Typography>
                     </Box>
                     <Box
@@ -91,7 +94,7 @@ const Hero = () => {
                     component={LazyLoadImage}
                     height={1}
                     width={1}
-                    src={'https://assets.maccarianagency.com/screenshots/dashboard.png'}
+                    src={dilimg}
                     alt="..."
                     effect="blur"
                     boxShadow={3}

@@ -3,32 +3,47 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import Grid from '@mui/material/Grid';
+// import {Dawlance} from '../assets/Dawlance'
+import Dawlance from '../../../Assets/Dawlance.png';
+import IMC from '../../../Assets/IMC.png';
+import IsmailIndustry from '../../../Assets/Ismail.png';
+import Accord from '../../../Assets/Accord.png';
+import Isl from '../../../Assets/Isl.jpeg';
+
 
 const data = [
     {
-        title: 'Google Chrome',
+        title: 'Dawlance Arcelik Global',
         subtitle:
-            'Google Chrome is a cross-platform web browser developed by Google.',
-        icon: 'https://assets.maccarianagency.com/browsers/chrome.png',
+            'The colaboration session explored prospects for synergy that may unite academia and industry.',
+            icon: Dawlance,
+
     },
     {
-        title: 'Safari',
+        title: 'Indus Motor Company',
         subtitle:
-            'Safari is a graphical web browser developed by Apple, based on the WebKit engine.',
-        icon: 'https://assets.maccarianagency.com/browsers/safari.png',
+            'The exhange of ideas between NED-IMC was described as enriching, comprehensive and forward thinking.',
+            icon: IMC,
     },
     {
-        title: 'Microsoft Edge',
+        title: 'Ismail Industries',
         subtitle:
-            'Microsoft Edge is a web browser developed by Microsoft. It was first released for Windows 10.',
-        icon: 'https://assets.maccarianagency.com/browsers/edge.png',
+            'The primary goal of this collaboration appears to be reducing gaps between industry and academia.',
+            icon: IsmailIndustry
     },
     {
-        title: 'Mozilla Firefox',
+        title: 'International Accord',
         subtitle:
-            'Mozilla Firefox, or simply Firefox, is a free and web browser developed by the Mozilla.',
-        icon: 'https://assets.maccarianagency.com/browsers/firefox.png',
+            'The collaborative meeting explored potential collaborations in various areas including staff recruitment, training and other mutually benefical initiatives.',
+            icon: Accord
     },
+    {
+        title: 'International Steel Limited',
+        subtitle:
+            'Together, NED and ISL are embarking on a journey of impactful academic-industry partnerships.',
+            icon: Isl
+    },
+
 ];
 
 const BrowserSupport = () => {
@@ -43,15 +58,15 @@ const BrowserSupport = () => {
                     gutterBottom
                     color={'secondary'}
                 >
-                    Compatibility
+                    industrial collaboration
                 </Typography>
                 <Typography fontWeight={700} variant={'h4'}>
-                    Compatible with all major browsers
+                MEMORANDUM OF UNDERSTANDING SIGNED WITH INDUSTRIES
                 </Typography>
             </Box>
             <Grid container spacing={2}>
                 {data.map((item, i) => (
-                    <Grid item xs={12} md={3} key={i}>
+                    <Grid item xs={12} md={4} key={i}>
                         <Box
                             width={1}
                             height={1}
@@ -80,9 +95,9 @@ const BrowserSupport = () => {
                                 >
                                     {item.title}
                                 </Typography>
-                                <Typography align={'center'} color="text.secondary">
+                                {/* <Typography align={'center'} color="text.secondary">
                                     {item.subtitle}
-                                </Typography>
+                                </Typography> */}
                             </Box>
                         </Box>
                     </Grid>

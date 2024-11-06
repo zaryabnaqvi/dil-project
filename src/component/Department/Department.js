@@ -64,7 +64,12 @@ const Departments = () => {
             {openDept === "arch" && <Arch />}
             {openDept === "eco" && <Eco />}
           </article>
-          <aside id="sidebar">
+          <aside id="sidebar" style={{
+                  maxHeight: 'calc(100vh - 100px)',
+                  overflowY: 'auto',  
+                  top: '20px',  
+                  width: '250px',  
+            }}>
             <div
               style={{
                 color: "white ",

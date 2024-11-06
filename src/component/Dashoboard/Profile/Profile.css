@@ -37,7 +37,8 @@
 }
 
 .mainBtn {
-    background: #7355F7;
+    /* background: #7355F7; */
+    background: #01204e;
     padding: 13px 36px;
     display: inline-block;
     border-radius: 50px;
@@ -51,5 +52,5 @@
     cursor: pointer;
 }
 .mainBtn:hover {
-    background-color: #4C25F5;
+    background-color: #021229;
 }

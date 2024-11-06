@@ -2,9 +2,12 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Sidebar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faShoppingCart, faCommentAlt, faUserPlus, faCog, faFileMedical, faList, faUserCircle} from '@fortawesome/free-solid-svg-icons'
+import { faShoppingCart, faCommentAlt, faUserPlus, faCog, faFileMedical, faList, faUserCircle, faPlus} from '@fortawesome/free-solid-svg-icons'
 import { faBuffer } from '@fortawesome/free-brands-svg-icons';
 import { useAppContext } from '../../../context';
+import Image from 'react-bootstrap/Image';
+import dilLogo from '../../../Assets/dilLogo.png';
+
 
 const Sidebar = ({setTitle}) => {
     const { state: { admin } } = useAppContext()
@@ -13,9 +16,10 @@ const Sidebar = ({setTitle}) => {
         <div>
             <div className="sideBrand">
                 <div className="sideBrnIcon">
-                    <FontAwesomeIcon icon={faBuffer}/>
+                    {/* <FontAwesomeIcon icon={faBuffer}/> */}
+                    <Image src={dilLogo} alt='logo' className="img-fluid" style={{ maxWidth: '50px', height: 'auto' }} />
                     </div>
-                <h2>Easy <span className="navHighlight">Consulting</span></h2>
+                <h2>DIL <span className="navHighlight">Portal</span></h2>
             </div>
             <nav id="sideNavbar">
                 <ul>    
@@ -56,20 +60,33 @@ const Sidebar = ({setTitle}) => {
                         <>
                             <li>
                                 <NavLink onClick={() => setTitle('Book')} activeclassname="activePage" exact to="/dashboard/book">
-                                    <FontAwesomeIcon icon={faShoppingCart} className="iconC"/> 
-                                    Book
+                                    <FontAwesomeIcon icon={faPlus} className="iconC"/> 
+                                    Add Department services
+                                </NavLink>
+                                
+                            </li>
+                            <li>
+                                <NavLink onClick={() => setTitle('Booking List')} activeclassname="activePage" to="/dashboard/booking">
+                                    <FontAwesomeIcon icon={faPlus} className="iconC"/> 
+                                    Add Department
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink onClick={() => setTitle('Booking List')} activeclassname="activePage" to="/dashboard/booking">
                                     <FontAwesomeIcon icon={faList} className="iconC"/> 
-                                    Booking List
+                                    Show Department
                                 </NavLink>
                             </li>
                             <li>
                                 <NavLink onClick={() => setTitle('Review')} activeclassname="activePage" to="/dashboard/review">
                                     <FontAwesomeIcon icon={faCommentAlt} className="iconC"/>
-                                     Review
+                                     Approval Department
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink onClick={() => setTitle('Review')} activeclassname="activePage" to="/dashboard/review">
+                                    <FontAwesomeIcon icon={faCommentAlt} className="iconC"/>
+                                     Approval Industry
                                 </NavLink>
                             </li>
                         </>

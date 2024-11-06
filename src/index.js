@@ -7,12 +7,27 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import { AppProvider } from "./context";
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#01204e',
+    },
+    secondary: {
+      main: '#ffffff',
+    },
+  },
+});
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <AppProvider>
-        <App />
-      </AppProvider>
+      <ThemeProvider theme={theme}>
+        <AppProvider>
+          <App />
+        </AppProvider>
+      </ThemeProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

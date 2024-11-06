@@ -8,6 +8,9 @@ import { useEffect } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import PopOver from '../PopOver/PopOver';
 import { useAppContext } from '../../../context';
+import Image from 'react-bootstrap/Image';
+import dilLogo from '../../../Assets/dilLogo.png';
+
 
 
 const NavBar = () => {
@@ -29,7 +32,8 @@ const NavBar = () => {
         <Navbar className={`navbar navbar-expand-lg navbar-light ${isSticky ? "navStyle" : "navDefault"}`} expand="lg">
             <Container>
                 <Navbar.Brand as={Link} to="/" onClick={scrollTop} className="navBrn">
-                    <FontAwesomeIcon icon={faBuffer} className="brnIcon" /> Easy <span className="navHighlight">Consulting</span>
+                    <Image src={dilLogo} alt='logo' className="img-fluid" style={{ maxWidth: '60px', height: 'auto' }} />
+                    DIL <span className="navHighlight">Portal</span>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav" />

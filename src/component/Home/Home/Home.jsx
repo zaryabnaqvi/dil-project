@@ -14,12 +14,12 @@ const Home = () => {
     return (
         <main>
             <Header/>
-            <BuildTools/>
+            {/* <BuildTools/> */}
             <About/>
             <Services/>
             <BrowserSupport/>
             <HappyClient/>
-            <Pricing/>
+            {/* <Pricing/> */}
             <Reviews/>
             <Contact/>
             <Footer/>

@@ -1,5 +1,5 @@
 .footer {
-    background: #7355F7;
+    background: #18468a;
     background-image: url('../../../Assets/footerbg.png');
     width: 100%;
     font-family: 'Poppins', sans-serif;
@@ -48,7 +48,8 @@
     background: rgba(240, 255, 255, 0.925);;
 }
 .footerLink > .aboutUsDes {
-    color: rgba(255, 255, 255, 0.6);
+    /* color: rgba(255, 255, 255, 0.6); */
+    color:#fff ;
     font-weight: 400;
 }
 .footerLink li {
@@ -106,9 +107,13 @@
     color: #fff;
 }
 
+.aboutUsDes {
+    color: #fff !important ;
+}
 .copyRight {
-    background-color: #2608AB;
-    color: rgba(255, 255, 255, 0.692);
+    background-color: #04347d;
+    /* color: rgba(255, 255, 255, 0.692); */
+    color: #fff !important ;
     font-weight: 400;
     font-size: 0.911rem;
     text-align: center;
@@ -196,3 +201,60 @@
         transform: translateX(81px);
     }
 }
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+    .footerInfo {
+        padding: 2rem 0;
+    }
+    
+    .fAboutUs {
+        padding: 1rem 0;
+        text-align: center; /* Center the text on smaller screens */
+    }
+    
+    .footerLink h5 {
+        font-size: 1.2rem; /* Adjust font size for smaller screens */
+    }
+
+    .fContactInfo p {
+        font-size: 0.9rem; /* Adjust font size */
+    }
+}
+
+/* Tablet Styles */
+@media (min-width: 768px) and (max-width: 991px) {
+    .footerInfo {
+        padding: 2.5rem 0;
+    }
+
+    .fAboutUs {
+        padding: 1.5rem 0;
+    }
+
+    .footerLink h5 {
+        font-size: 1.5rem; /* Adjust font size for tablet screens */
+    }
+}
+
+.socialIcons {
+    list-style-type: none;
+    padding: 0;
+}
+
+.socialIcons .icon {
+    font-size: 1.5rem; /* Default icon size */
+}
+
+@media (min-width: 576px) {
+    .socialIcons .icon {
+        font-size: 1.75rem; /* Adjust for larger screens */
+    }
+}
+
+@media (min-width: 768px) {
+    .socialIcons .icon {
+        font-size: 2rem;
+    }
+}
+

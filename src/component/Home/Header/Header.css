@@ -33,7 +33,7 @@
     margin: 0.5rem 0 1rem
 }
 .branBtn {
-    background: #7355F7;
+    background: #01204e;
     padding: 18px 35px;
     display: inline-block;
     border-radius: 50px;
@@ -47,10 +47,10 @@
 }
 .branBtn:hover {
     color: #fff;
-    background-color: #4B24F5;
+    background-color: #011027;
 }
 .headerHighlight {
-    color: #7355F7;
+    color: #01204e;
 }
 
 @media (max-width: 981px) {

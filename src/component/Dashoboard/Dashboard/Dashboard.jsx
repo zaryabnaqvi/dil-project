@@ -13,7 +13,7 @@ import { SET_ADMIN, useAppContext } from '../../../context';
 const Dashboard = () => {
     const { state: { user, admin }, dispatch } = useAppContext()
     const [sideToggle, setSideToggle] = useState(false)
-    const [title, setTitle] = useState('Easy Consulting')
+    const [title, setTitle] = useState('Directorate of Industrial Liaison')
 
     useEffect(() => {
         axios.get(`https://immense-river-40491.herokuapp.com/admin?email=${user.email}`)
