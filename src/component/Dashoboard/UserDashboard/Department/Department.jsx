@@ -1,54 +1,4 @@
-// import React, { useEffect, useState } from 'react';
-// import {Elements} from '@stripe/react-stripe-js';
-// import {loadStripe} from '@stripe/stripe-js';
-// import { Form, Col, Row, Toast } from 'react-bootstrap';
-// import './Department.css'
-// import axios from 'axios';
-// import ifoIcon from '../../../../Assets/info.svg';
 
-// import { SET_SELECTED_SERVICE, useAppContext } from '../../../../context';
-
-// const Department = () => {
- 
-
-    
-//     const [show, setShow] = useState(true);
-
-//     useEffect(() => {
-//       // TODO:
-//     }, [])
-
-   
-
-
-
-//     return (
-//         <div className="bookForm">
-//             <Toast show={show} onClose={() => setShow(!show)} className="bookToast">
-//                 <Toast.Header>
-//                     <img src={`${ifoIcon}`} className="rounded mr-2 toastIcon" alt=""/>
-//                     <strong className="mr-auto">Info</strong>
-//                     <small> 02 seconds ago</small>
-//                 </Toast.Header>
-//                 <Toast.Body>4242 4242 4242 4242 you can use this card number for testing </Toast.Body>
-//             </Toast>
-//             <Row>
-//                 <Col md={6} xs={12} className="my-3">
-//                     <Form.Label style={{ fontWeight: "bold" }}>Department Name</Form.Label>
-        
-//                 </Col>
-//                 <Col md={6} xs={12} className="my-3">
-//                         <Form.Label style={{ fontWeight: "bold" }}>Faculty</Form.Label>
-            
-//                 </Col>
-//             </Row>
-
-         
-//         </div>
-//     );
-// };
-
-// export default Department;
 import React, { useEffect, useState } from 'react';
 import { Form, Col, Row, Toast, Button } from 'react-bootstrap';
 import './Department.css';
@@ -101,7 +51,6 @@ const Department = () => {
                     <strong className="mr-auto">Info</strong>
                     <small>02 seconds ago</small>
                 </Toast.Header>
-                <Toast.Body>4242 4242 4242 4242 you can use this card number for testing</Toast.Body>
             </Toast>
             
             <Form onSubmit={handleSubmit}>
