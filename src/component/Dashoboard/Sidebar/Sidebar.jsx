@@ -66,7 +66,7 @@ const Sidebar = ({setTitle}) => {
                                 
                             </li>
                             <li>
-                                <NavLink onClick={() => setTitle('Booking List')} activeclassname="activePage" to="/dashboard/booking">
+                                <NavLink onClick={() => setTitle('Add Deparment')} activeclassname="activePage" to="/dashboard/department">
                                     <FontAwesomeIcon icon={faPlus} className="iconC"/> 
                                     Add Department
                                 </NavLink>

@@ -15,6 +15,7 @@ import dilLogo from '../../../Assets/dilLogo.png';
 
 const NavBar = () => {
     const { state: { user } } = useAppContext()
+    console.log(user)
     const [isSticky, setSticky] = useState(false)
 
     useEffect(() => {

@@ -4,11 +4,19 @@ import Service from './Service';
 import Spinner from '../../Shared/Spinner/Spinner';
 
 const Services = () => {
-    const [services, setServices] = useState([])
+    const [services, setServices] = useState([
+        {
+            name:"CSIT Department",
+            description: "Computer Science and Information Technology (CSIT) is a department of the College of Arts, Sciences, and Humanities. It is the largest and most prestigious department in the College of Arts, Sciences, and Humanities.",
+            img: "https://www.cs.columbia.edu/sites/default/files/styles/cs_hero_image/public/cs-hero-image_0.jpg?itok=j8v6o9_P",
+        }
+    ])
+
+
     
     useEffect(() => {
-        axios.get('https://immense-river-40491.herokuapp.com/services')
-        .then(res => setServices(res.data))
+        // axios.get('https://immense-river-40491.herokuapp.com/services')
+        // .then(res => setServices(res.data))
     }, [])
 
     return (

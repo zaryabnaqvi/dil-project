@@ -7,9 +7,10 @@ import './PopOver.css';
 import toast from 'react-hot-toast';
 import { handleSignOut } from '../../Login/LoginManager';
 import { SET_USER, useAppContext } from '../../../context';
+import profileimg from "../../../Assets/user.svg"
 
 const PopOver = () => {
-    const { state:{user: { name, email, img }}, dispatch} = useAppContext()
+    const { state:{user: { name, email}}, dispatch} = useAppContext()
     const [show, setShow] = useState(false);
     const [target, setTarget] = useState(null);
     const ref = useRef(null);
@@ -29,7 +30,7 @@ const PopOver = () => {
     }
     return (
         <div >
-            <img src={img} alt="" onClick={handleClick} className="popImg"/>
+            <img src={profileimg} alt="" onClick={handleClick} className="popImg"/>
              <Overlay
                 show={show}
                 target={target}
@@ -39,7 +40,7 @@ const PopOver = () => {
             >
                 <Popover id="popover-contained">
                     <div className="text-center">
-                        <img src={img} alt="" className="popUserImg"/>
+                        <img src={profileimg} alt="" className="popUserImg"/>
                         <p className="userName">{`${name}`}</p>
                         <p className="userEmail">{email}</p>
                         <Button variant="outline-danger" size="sm" onClick={signOut}>Log out</Button>

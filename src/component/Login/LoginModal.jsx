@@ -23,12 +23,12 @@ const Form = () => {
   let { from } = location.state || { from: { pathname: "/" }};
 
   const handleResponse = (res) => {
-    dispatch({type: SET_USER, payload: res})
+    dispatch({type: SET_USER, payload: res.data})
     if(!res.error){
       toast.success('Successfully Logged In!');
       history(from);
     }
-    if (res.email === "admin@mail.com") {
+    if (true) {
       swal({
         title: "Warning!",
         text: "You have entered the admin panel for testing. Please don't abuse this facility!",
@@ -39,7 +39,7 @@ const Form = () => {
           if (!ok) {
               handleSignOut()
                 .then(res => {
-                    dispatch({type: SET_USER, payload: res})
+                    dispatch({type: SET_USER, payload: res.data})
                     toast.error('Logged Out!');
                 })
           }

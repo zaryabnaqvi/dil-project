@@ -7,7 +7,7 @@ import { useAppContext } from '../../../context';
 
 const Service = ({service}) => {
     const { state:{ admin}, dispatch } = useAppContext()
-    const {name, price, description, img} = service;
+    const {name, description, img} = service;
 
     const handleSelectedService = (service) => {
         dispatch({type: 'SELECTED_SERVICE', payload: service})
@@ -23,7 +23,7 @@ const Service = ({service}) => {
                     <h4 className="serviceName">{name}</h4>
                     <p className="serviceDes">{description}</p>
                     <div className="bookingBox">
-                        <p className="servicePrice">${price}</p>
+                        {/* <p className="servicePrice">${price}</p> */}
                         <Link className="serviceLink" to={admin ? '/dashboard/orderList' : '/dashboard/book'}>
                             <button className="bookingBtn" 
                             onClick={handleSelectedService}

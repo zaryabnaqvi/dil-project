@@ -21,7 +21,7 @@ const theme = createTheme({
 });
 
 ReactDOM.render(
-  <React.StrictMode>
+ 
     <Router>
       <ThemeProvider theme={theme}>
         <AppProvider>
@@ -29,7 +29,7 @@ ReactDOM.render(
         </AppProvider>
       </ThemeProvider>
     </Router>
-  </React.StrictMode>,
+  ,
   document.getElementById("root")
 );
 
