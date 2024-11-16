@@ -61,3 +61,65 @@ export const deleteDepartment = async (id)=>{
         throw new Error('Invalid credentials');
     }
 }
+
+
+
+
+export const AddService =  async(body)=>{
+    const response = await fetch(`${BASE_URL}/departments/services/new`,{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(body)
+    });
+    if(response.ok){
+        const data = await response.json();
+        return data;
+    }else{
+        throw new Error('Invalid credentials');
+    
+    }
+}
+
+
+export const ShowServices =  async()=>{
+    const response = await fetch(`${BASE_URL}/departments/services/get-all`,{
+        method: 'GET',   
+    });
+    if(response.ok){
+        const data = await response.json();
+        return data;
+    }else{
+        throw new Error('Invalid credentials');
+    
+    }
+}
+
+export const UpdateService = async(id,data) => {
+    const response = await fetch(`${BASE_URL}/departments/services/update/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+    if(response.ok){
+        const data = await response.json();
+        return data;
+    } else{
+        throw new Error('Invalid credentials');
+    }
+}
+
+export const DeleteService = async (id)=>{
+    const response = await fetch(`${BASE_URL}/departments/services/delete/${id}`, {
+        method: 'DELETE',
+    });
+    if(response.ok){
+        const data = await response.json();
+        return data;
+    } else{
+        throw new Error('Invalid credentials');
+    }
+}

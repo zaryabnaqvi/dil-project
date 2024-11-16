@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Table, Button, Modal, Form, Alert } from 'react-bootstrap';
 import { deleteDepartment, ShowDepartments, updateDepartment } from '../../../../api/department';
 
+
 export const DepartmentList = () => {
     const [departments, setDepartments] = useState([]);
     const [showEditModal, setShowEditModal] = useState(false);
@@ -96,7 +97,7 @@ export const DepartmentList = () => {
                             <td>{department.faculty}</td>
                             <td>{department.universityName}</td>
                             <td>
-                                <Button variant="primary" onClick={() => handleEdit(department)}>
+                                <Button variant='success' onClick={() => handleEdit(department)}>
                                     Edit
                                 </Button>{' '}
                                 <Button variant="danger" onClick={() => handleDelete(department)}>
@@ -146,7 +147,7 @@ export const DepartmentList = () => {
                     <Button variant="secondary" onClick={() => setShowEditModal(false)}>
                         Cancel
                     </Button>
-                    <Button variant="primary" onClick={handleSave}>
+                    <Button variant="success" onClick={handleSave}>
                         Save Changes
                     </Button>
                 </Modal.Footer>
@@ -174,22 +175,22 @@ export const DepartmentList = () => {
 };
 
 // Sample department data for testing
-const sampleDepartments = [
-    {
-        _id: '67222e6f670487648a43aca4',
-        name: 'CSIT',
-        faculty: 'ECE',
-        universityName: 'NED',
-        createdAt: '2024-10-30T13:02:39.111Z',
-        updatedAt: '2024-10-30T13:02:39.111Z',
-    },
-    {
-        _id: '6723f9a26e18439bac15b54b',
-        name: 'English',
-        faculty: 'Allied Studies',
-        universityName: 'NED',
-        createdAt: '2024-10-31T21:41:54.173Z',
-        updatedAt: '2024-10-31T21:41:54.173Z',
-    },
-];
+// const sampleDepartments = [
+//     {
+//         _id: '67222e6f670487648a43aca4',
+//         name: 'CSIT',
+//         faculty: 'ECE',
+//         universityName: 'NED',
+//         createdAt: '2024-10-30T13:02:39.111Z',
+//         updatedAt: '2024-10-30T13:02:39.111Z',
+//     },
+//     {
+//         _id: '6723f9a26e18439bac15b54b',
+//         name: 'English',
+//         faculty: 'Allied Studies',
+//         universityName: 'NED',
+//         createdAt: '2024-10-31T21:41:54.173Z',
+//         updatedAt: '2024-10-31T21:41:54.173Z',
+//     },
+// ];
 

@@ -45,14 +45,6 @@ const Department = () => {
 
     return (
         <div className="bookForm">
-            <Toast show={show} onClose={() => setShow(!show)} className="bookToast">
-                <Toast.Header>
-                    <img src={`${ifoIcon}`} className="rounded mr-2 toastIcon" alt=""/>
-                    <strong className="mr-auto">Info</strong>
-                    <small>02 seconds ago</small>
-                </Toast.Header>
-            </Toast>
-            
             <Form onSubmit={handleSubmit}>
                 <Row>
                     <Col md={6} xs={12} className="my-3">
@@ -82,8 +74,9 @@ const Department = () => {
                 </Row>
                 
             
-
-                <Button variant="primary" type="submit">Submit</Button>
+                <div className="d-flex justify-content-center">
+                    <Button variant="success" type="submit">Submit</Button>
+                </div>
             </Form>
         </div>
     );
