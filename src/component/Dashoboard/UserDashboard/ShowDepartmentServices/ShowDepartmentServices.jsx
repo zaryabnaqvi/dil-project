@@ -11,6 +11,18 @@ const Services = () => {
     const [currentService, setCurrentService] = useState(null);
     const [showAlert, setShowAlert] = useState(false);
 
+    const handleProjectsChange = (target,index,property) => {
+        const projects = [...currentService.projects]
+    
+        projects[index][property]=target
+        
+        setCurrentService((prevData) => ({
+          ...prevData,
+          projects,
+        }));
+      };
+    
+
     useEffect(() => {
         const fetchServices = async () => {
             try {
@@ -125,7 +137,7 @@ const Services = () => {
             </Row>
 
             {/* Edit Modal */}
-            <Modal show={showEditModal} onHide={() => setShowEditModal(false)}>
+            <Modal size='lg' show={showEditModal} onHide={() => setShowEditModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Service</Modal.Title>
                 </Modal.Header>
@@ -194,17 +206,42 @@ const Services = () => {
                             />
                         </Form.Group>
 
-                        <Form.Group controlId="serviceProjects">
-                            <Form.Label>Projects (Comma separated)</Form.Label>
-                            <Form.Control
-                                type="text"
-                                value={currentService?.projects.map((p) => p.title).join(', ') || ''}
-                                onChange={(e) => {
-                                    const updatedProjects = e.target.value.split(',').map((title) => ({ title }));
-                                    setCurrentService({ ...currentService, projects: updatedProjects });
-                                }}
-                            />
-                        </Form.Group>
+        {currentService?.projects.map((project,index)=>(
+                <Row>
+                <Col md={6} className="my-3">
+                  <Form.Group>
+                    <Form.Label>Project Title</Form.Label>
+                    <Form.Control
+                      type="text"
+                      value={project.title}
+                      onChange={(e)=>handleProjectsChange(e.target.value,index,"title")}
+                      placeholder="e.g., Web Development, Mobile App Development"
+                    />
+                  </Form.Group>
+                </Col>
+                <Col md={6} className="my-3">
+                  <Form.Group>
+                    <Form.Label>Projects Description</Form.Label>
+                    <Form.Control
+                      type="text"
+                      onChange={(e)=>handleProjectsChange(e.target.value,index,"desc")}
+                      placeholder="Project desc"
+                    />
+                  </Form.Group>
+                </Col>
+            
+                <Col md={6} className="my-3">
+            <Form.Group>
+              <Form.Label>Projects link</Form.Label>
+              <Form.Control
+                type="text"
+                onChange={(e)=>handleProjectsChange(e.target.value,index,"link")}
+                placeholder="e.g., Link"
+              />
+            </Form.Group>
+          </Col>
+              </Row>
+        ))}
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>
