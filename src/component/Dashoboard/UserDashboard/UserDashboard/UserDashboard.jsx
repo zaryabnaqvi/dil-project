@@ -18,9 +18,11 @@ const UserDashboard = () => {
             <Route path="department" element={<Department />} />
             <Route path="Showdepartments" element={<DepartmentList />} />
 
-            <Route path="DepartmentService" element={<AddServiceComponent />} />
+            <Route path="DepartmentService/:id" element={<AddServiceComponent />} />
 
             <Route path="ShowDepartmentService" element={<Services />} />
+            {/* <Route path="deparmtent-service/:id" element={<Services />} /> */}
+
 
             
             <Route path="book/:id" element={<Book />} />

@@ -57,7 +57,7 @@ const NavBar = () => {
                         </Nav.Item>
                         <Nav.Item>
                             {
-                                user.email ?
+                                user?.email ?
                                     <div>
                                         <PopOver />
                                     </div> :

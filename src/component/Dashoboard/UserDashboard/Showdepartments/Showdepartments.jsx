@@ -2,9 +2,11 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Button, Modal, Form, Alert } from 'react-bootstrap';
 import { deleteDepartment, ShowDepartments, updateDepartment } from '../../../../api/department';
+import { useNavigate } from "react-router-dom"
 
 
 export const DepartmentList = () => {
+    const navigate = useNavigate();
     const [departments, setDepartments] = useState([]);
     const [showEditModal, setShowEditModal] = useState(false);
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -103,6 +105,9 @@ export const DepartmentList = () => {
                                 <Button variant="danger" onClick={() => handleDelete(department)}>
                                     Delete
                                 </Button>
+                                <Button variant="secondary" onClick={() => navigate(`/dashboard/DepartmentService/${department._id}`)}>
+                                    Add Service 
+                                </Button>
                             </td>
                         </tr>
                     ))}
@@ -150,6 +155,8 @@ export const DepartmentList = () => {
                     <Button variant="success" onClick={handleSave}>
                         Save Changes
                     </Button>
+
+                    
                 </Modal.Footer>
             </Modal>
 

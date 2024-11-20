@@ -123,3 +123,12 @@ export const DeleteService = async (id)=>{
         throw new Error('Invalid credentials');
     }
 }
+
+
+// /api/departments/get-by-id/67222e6f670487648a43aca4
+
+export const getDepartmentById = async(id )=>{
+    const response = await fetch(`${BASE_URL}/departments/get-by-id/${id}`)
+    const data = await response.json()
+    return data
+}

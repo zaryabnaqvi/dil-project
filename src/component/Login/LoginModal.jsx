@@ -23,7 +23,7 @@ const Form = () => {
   let { from } = location.state || { from: { pathname: "/" }};
 
   const handleResponse = (res) => {
-    dispatch({type: SET_USER, payload: res.data})
+    dispatch({type: SET_USER, payload: res})
     if(!res.error){
       toast.success('Successfully Logged In!');
       history(from);
@@ -39,7 +39,7 @@ const Form = () => {
           if (!ok) {
               handleSignOut()
                 .then(res => {
-                    dispatch({type: SET_USER, payload: res.data})
+                    dispatch({type: SET_USER, payload: res})
                     toast.error('Logged Out!');
                 })
           }
