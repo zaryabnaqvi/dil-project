@@ -87,8 +87,10 @@ const AddServiceComponent = () => {
       }
     });
 
+    console.log(dataToSend)
+
     try {
-      const data = await AddService(dataToSend);
+      const data = await AddService(formData);
       setToastMessage("Service created successfully!");
       setShowToast(true);
       setFormData({

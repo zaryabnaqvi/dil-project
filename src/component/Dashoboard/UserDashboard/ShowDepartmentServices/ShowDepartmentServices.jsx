@@ -77,7 +77,7 @@ const Services = () => {
             )}
             <Row>
                 {services.map((service) => (
-                    <Col md={4} sm={6} xs={12} key={service._id} className="my-3">
+                    <Col md={12} sm={12} xs={12} key={service._id} className="my-3">
                         <Card>
                             <Card.Header as="h5">{service.title}</Card.Header>
                             {service.media.length > 0 && (
