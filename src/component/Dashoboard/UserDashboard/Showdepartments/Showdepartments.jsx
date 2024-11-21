@@ -99,14 +99,17 @@ export const DepartmentList = () => {
                             <td>{department.faculty}</td>
                             <td>{department.universityName}</td>
                             <td>
-                                <Button variant='success' onClick={() => handleEdit(department)}>
+                                <Button variant='success' onClick={() => handleEdit(department)} className='me-2'>
                                     Edit
                                 </Button>{' '}
-                                <Button variant="danger" onClick={() => handleDelete(department)}>
+                                <Button variant="danger" onClick={() => handleDelete(department)} className='me-2'>
                                     Delete
                                 </Button>
-                                <Button variant="secondary" onClick={() => navigate(`/dashboard/DepartmentService/${department._id}`)}>
+                                <Button variant="secondary" onClick={() => navigate(`/dashboard/DepartmentService/${department._id}`)} className='me-2'>
                                     Add Service 
+                                </Button>
+                                <Button variant="secondary" onClick={() => navigate(`/dashboard/ShowDepartmentServices/${department._id}`)} className='me-2'>
+                                    Show Service 
                                 </Button>
                             </td>
                         </tr>
@@ -115,7 +118,7 @@ export const DepartmentList = () => {
             </Table>
 
             {/* Edit Modal */}
-            <Modal show={showEditModal} onHide={() => setShowEditModal(false)}>
+            <Modal size='lg' show={showEditModal} onHide={() => setShowEditModal(false)}>
                 <Modal.Header closeButton>
                     <Modal.Title>Edit Department</Modal.Title>
                 </Modal.Header>

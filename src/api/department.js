@@ -132,3 +132,17 @@ export const getDepartmentById = async(id )=>{
     const data = await response.json()
     return data
 }
+
+
+export const getServiceByDepartmentId =  async(id)=>{
+    const response = await fetch(`${BASE_URL}/departments/services/get-service-by-dept-id/${id}`,{
+        method: 'GET',   
+    });
+    if(response.ok){
+        const data = await response.json();
+        return data;
+    }else{
+        throw new Error('Invalid credentials');
+    
+    }
+}

@@ -58,7 +58,7 @@ const Sidebar = ({setTitle}) => {
                         </>
                         :
                         <>
-                            <li>
+                            {/* <li>
                                 <NavLink onClick={() => setTitle('Add Service')} activeclassname="activePage" exact to="/dashboard/DepartmentService">
                                     <FontAwesomeIcon icon={faPlus} className="iconC"/> 
                                     Add Department services
@@ -71,7 +71,7 @@ const Sidebar = ({setTitle}) => {
                                     Show Department services
                                 </NavLink>
                                 
-                            </li>
+                            </li> */}
                             <li>
                                 <NavLink onClick={() => setTitle('Add Deparment')} activeclassname="activePage" to="/dashboard/department">
                                     <FontAwesomeIcon icon={faPlus} className="iconC"/> 

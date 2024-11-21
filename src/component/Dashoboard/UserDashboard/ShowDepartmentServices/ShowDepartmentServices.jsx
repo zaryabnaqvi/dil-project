@@ -1,9 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Card, Col, Row, Button, Container, ListGroup, Modal, Form, Alert } from 'react-bootstrap';
-
 import { ShowServices } from '../../../../api/department';
-import { UpdateService,DeleteService } from '../../../../api/department';
+import { UpdateService, DeleteService } from '../../../../api/department';
+import { getServiceByDepartmentId } from '../../../../api/department';
+import { useParams } from 'react-router-dom';
+
 const Services = () => {
+    const { id } = useParams()
+
+    // const id='67222e6f670487648a43aca4';
+    console.log(id);
+
+
     const [services, setServices] = useState([]);
     const [error, setError] = useState(null);
     const [showEditModal, setShowEditModal] = useState(false);
@@ -11,32 +19,35 @@ const Services = () => {
     const [currentService, setCurrentService] = useState(null);
     const [showAlert, setShowAlert] = useState(false);
 
-    const handleProjectsChange = (target,index,property) => {
+    const handleProjectsChange = (target, index, property) => {
         const projects = [...currentService.projects]
-    
-        projects[index][property]=target
-        
+
+        projects[index][property] = target
+
         setCurrentService((prevData) => ({
-          ...prevData,
-          projects,
+            ...prevData,
+            projects,
         }));
-      };
-    
+    };
+
+
+    const fetchServices = async () => {
+        try {
+            const data = await getServiceByDepartmentId(id);
+            if (data.code === 200) {
+                setServices(data.data);
+            }
+        } catch (error) {
+            setError("No services available");
+            console.error(error);
+        }
+    };
 
     useEffect(() => {
-        const fetchServices = async () => {
-            try {
-                const data = await ShowServices();
-                if (data.code === 200) {
-                    setServices(data.data);
-                }
-            } catch (error) {
-                setError("Error fetching services data");
-                console.error(error);
-            }
-        };
         fetchServices();
     }, []);
+
+
 
     const handleEdit = (service) => {
         setCurrentService(service);
@@ -55,7 +66,8 @@ const Services = () => {
                 setShowDeleteConfirm(false);
                 setShowAlert(true);
                 // Refetch services after deletion
-                const data = await ShowServices();
+                // const data = await ShowServices();
+                const data= await getServiceByDepartmentId(currentService._id)
                 setServices(data.data);
             }
         } catch (error) {
@@ -80,7 +92,9 @@ const Services = () => {
 
     return (
         <Container>
-            <h2 className="my-4">Our Services</h2>
+            {services && services.length > 0 && (
+                <h2 className="my-4">{services[0].departmentId.name} Services</h2>
+            )}
             {error && <p className="text-danger">{error}</p>}
             {showAlert && (
                 <Alert variant="success" onClose={() => setShowAlert(false)} dismissible>
@@ -88,10 +102,10 @@ const Services = () => {
                 </Alert>
             )}
             <Row>
-                {services.map((service) => (
+                {services.map((service, index) => (
                     <Col md={12} sm={12} xs={12} key={service._id} className="my-3">
                         <Card>
-                            <Card.Header as="h5">{service.title}</Card.Header>
+                            <Card.Header as="h5"> <strong>{index + 1}. {service.title}</strong></Card.Header>
                             {service.media.length > 0 && (
                                 <Card.Img variant="top" src={service.media[0]} alt="Service Media" />
                             )}
@@ -111,7 +125,7 @@ const Services = () => {
                                 {service.projects.length > 0 && (
                                     <div className="mt-3">
                                         <h6>Projects:</h6>
-                                        {service.projects.map((project) => (
+                                        {service.projects.map((project, index) => (
                                             <Card key={project._id} className="my-2">
                                                 <Card.Body>
                                                     <Card.Title>{project.title}</Card.Title>
@@ -206,42 +220,45 @@ const Services = () => {
                             />
                         </Form.Group>
 
-        {currentService?.projects.map((project,index)=>(
-                <Row>
-                <Col md={6} className="my-3">
-                  <Form.Group>
-                    <Form.Label>Project Title</Form.Label>
-                    <Form.Control
-                      type="text"
-                      value={project.title}
-                      onChange={(e)=>handleProjectsChange(e.target.value,index,"title")}
-                      placeholder="e.g., Web Development, Mobile App Development"
-                    />
-                  </Form.Group>
-                </Col>
-                <Col md={6} className="my-3">
-                  <Form.Group>
-                    <Form.Label>Projects Description</Form.Label>
-                    <Form.Control
-                      type="text"
-                      onChange={(e)=>handleProjectsChange(e.target.value,index,"desc")}
-                      placeholder="Project desc"
-                    />
-                  </Form.Group>
-                </Col>
-            
-                <Col md={6} className="my-3">
-            <Form.Group>
-              <Form.Label>Projects link</Form.Label>
-              <Form.Control
-                type="text"
-                onChange={(e)=>handleProjectsChange(e.target.value,index,"link")}
-                placeholder="e.g., Link"
-              />
-            </Form.Group>
-          </Col>
-              </Row>
-        ))}
+                        {currentService?.projects.map((project, index) => (
+                            <Row>
+                                <Form.Text className='fs-5 '>Project {index + 1}</Form.Text>
+                                <Col md={6} className="my-3">
+                                    <Form.Group>
+                                        <Form.Label>Project Title</Form.Label>
+                                        <Form.Control
+                                            type="text"
+                                            value={project.title}
+                                            onChange={(e) => handleProjectsChange(e.target.value, index, "title")}
+                                            placeholder="e.g., Web Development, Mobile App Development"
+                                        />
+                                    </Form.Group>
+                                </Col>
+                                <Col md={6} className="my-3">
+                                    <Form.Group>
+                                        <Form.Label>Projects Description</Form.Label>
+                                        <Form.Control
+                                            type="text"
+                                            value={project.desc}
+                                            onChange={(e) => handleProjectsChange(e.target.value, index, "desc")}
+                                            placeholder="Project description"
+                                        />
+                                    </Form.Group>
+                                </Col>
+
+                                <Col md={6} className="my-3">
+                                    <Form.Group>
+                                        <Form.Label>Projects link</Form.Label>
+                                        <Form.Control
+                                            type="text"
+                                            value={project.link}
+                                            onChange={(e) => handleProjectsChange(e.target.value, index, "link")}
+                                            placeholder="e.g., Link"
+                                        />
+                                    </Form.Group>
+                                </Col>
+                            </Row>
+                        ))}
                     </Form>
                 </Modal.Body>
                 <Modal.Footer>

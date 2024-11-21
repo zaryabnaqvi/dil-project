@@ -20,7 +20,10 @@ const UserDashboard = () => {
 
             <Route path="DepartmentService/:id" element={<AddServiceComponent />} />
 
-            <Route path="ShowDepartmentService" element={<Services />} />
+            <Route path="ShowDepartmentServices/:id" element={<Services />} />
+
+
+            {/* <Route path="ShowDepartmentService" element={<Services />} /> */}
             {/* <Route path="deparmtent-service/:id" element={<Services />} /> */}
 
 

@@ -1,11 +1,11 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Form, Col, Row, Button, Toast } from "react-bootstrap";
-import { AddService,getDepartmentById } from "../../../../api/department";
-import {useParams} from "react-router-dom"
+import { AddService, getDepartmentById } from "../../../../api/department";
+import { useParams } from "react-router-dom"
 
 const AddServiceComponent = () => {
-  const {id} = useParams()
-  const [department,setDepartment]= useState(null)
+  const { id } = useParams()
+  const [department, setDepartment] = useState(null)
   const [formData, setFormData] = useState({
     title: "",
     description: "",
@@ -13,18 +13,18 @@ const AddServiceComponent = () => {
     careerScope: "",
     technology: "",
     isActive: true,
-    serviceArray: [],
+    serviceArray: [""],
     media: [],
     departmentId: "",
-    projects: [{title:"",desc:"",link:""}],
+    projects: [{ title: "", desc: "", link: "" }],
     isRequested: false,
   });
 
-  const fetchDepartmentById = async( )=>{
+  const fetchDepartmentById = async () => {
     const data = await getDepartmentById(id)
-    if(data.code === 200){
+    if (data.code === 200) {
       setDepartment(data.data)
-      setFormData({...formData,departmentId:data.data._id})
+      setFormData({ ...formData, departmentId: data.data._id })
     }
   }
 
@@ -48,11 +48,11 @@ const AddServiceComponent = () => {
     }));
   };
 
-  const handleProjectsChange = (target,index,property) => {
+  const handleProjectsChange = (target, index, property) => {
     const projects = [...formData.projects]
 
-    projects[index][property]=target
-    
+    projects[index][property] = target
+
     setFormData((prevData) => ({
       ...prevData,
       projects,
@@ -113,9 +113,9 @@ const AddServiceComponent = () => {
     }
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchDepartmentById()
-  },[])
+  }, [])
 
   return (
     <div className="addServiceForm">
@@ -152,12 +152,11 @@ const AddServiceComponent = () => {
             <Form.Group>
               <Form.Label>Description</Form.Label>
               <Form.Control
-                as="textarea"
+                // as="textarea"
                 name="description"
                 value={formData.description}
                 onChange={handleChange}
                 placeholder="Enter description"
-                rows={3}
               />
             </Form.Group>
           </Col>
@@ -201,7 +200,7 @@ const AddServiceComponent = () => {
             </Form.Group>
           </Col>
         </Row>
-        <Row>
+        {/* <Row>
           <Col md={6} className="my-3">
             <Form.Group>
               <Form.Label>Service Types (comma-separated)</Form.Label>
@@ -213,49 +212,92 @@ const AddServiceComponent = () => {
               />
             </Form.Group>
           </Col>
+        </Row> */}
+
+        <Row>
+          <Col md={12} className="my-3">
+            <Form.Group>
+              <Form.Label>Service Types</Form.Label>
+              {formData.serviceArray.map((service, index) => (
+                <div key={index} className="d-flex align-items-center mb-2">
+                  <Form.Control
+                    type="text"
+                    value={service}
+                    onChange={(e) => {
+                      const updatedServices = [...formData.serviceArray];
+                      updatedServices[index] = e.target.value;
+                      setFormData((prevData) => ({
+                        ...prevData,
+                        serviceArray: updatedServices,
+                      }));
+                    }}
+                    placeholder={`Service Type ${index + 1}`}
+                  />
+                </div>
+              ))}
+            </Form.Group>
+
+            <div className="mt-4 d-flex justify-content-center">
+              <Button
+                variant="success"
+                onClick={() => {
+                  setFormData((prevData) => ({
+                    ...prevData,
+                    serviceArray: [...prevData.serviceArray, ""],
+                  }));
+                }}
+              >
+                Add More Services
+              </Button>
+            </div>
+          </Col>
         </Row>
 
-        {formData.projects.map((project,index)=>(
-                <Row>
-                <Col md={6} className="my-3">
-                  <Form.Group>
-                    <Form.Label>Project Title</Form.Label>
-                    <Form.Control
-                      type="text"
-                      value={project.title}
-                      onChange={(e)=>handleProjectsChange(e.target.value,index,"title")}
-                      placeholder="e.g., Web Development, Mobile App Development"
-                    />
-                  </Form.Group>
-                </Col>
-                <Col md={6} className="my-3">
-                  <Form.Group>
-                    <Form.Label>Projects Description</Form.Label>
-                    <Form.Control
-                      type="text"
-                      onChange={(e)=>handleProjectsChange(e.target.value,index,"desc")}
-                      placeholder="Project desc"
-                    />
-                  </Form.Group>
-                </Col>
-            
-                <Col md={6} className="my-3">
-            <Form.Group>
-              <Form.Label>Projects link</Form.Label>
-              <Form.Control
-                type="text"
-                onChange={(e)=>handleProjectsChange(e.target.value,index,"link")}
-                placeholder="e.g., Link"
-              />
-            </Form.Group>
-          </Col>
-              </Row>
+
+        {formData.projects.map((project, index) => (
+          <Row>
+            <Form.Text className="fs-4 mb-2 ">
+              Project {index + 1}
+            </Form.Text>
+            <Col md={6} className="my-3">
+              <Form.Group>
+                <Form.Label>Project Title </Form.Label>
+                <Form.Control
+                  type="text"
+                  value={project.title}
+                  onChange={(e) => handleProjectsChange(e.target.value, index, "title")}
+                  placeholder="e.g., Web Development, Mobile App Development"
+                />
+              </Form.Group>
+            </Col>
+            <Col md={6} className="my-3">
+              <Form.Group>
+                <Form.Label>Projects Description</Form.Label>
+                <Form.Control
+                  type="text"
+                  onChange={(e) => handleProjectsChange(e.target.value, index, "desc")}
+                  placeholder="Project desc"
+                />
+              </Form.Group>
+            </Col>
+
+            <Col md={6} className="my-3">
+              <Form.Group>
+                <Form.Label>Projects link</Form.Label>
+                <Form.Control
+                  type="text"
+                  onChange={(e) => handleProjectsChange(e.target.value, index, "link")}
+                  placeholder="e.g., Link"
+                />
+              </Form.Group>
+            </Col>
+          </Row>
         ))}
 
-<div className="d-flex justify-content-center">
-          <Button onClick={()=>setFormData({...formData,projects:[...formData.projects,{title:"",desc:"",link:""}]}) } 
-          variant="success">
-          Add More Projects
+        <div className="d-flex justify-content-center">
+          <Button onClick={() => setFormData({ ...formData, projects: [...formData.projects, { title: "", desc: "", link: "" }] })}
+            variant="success">
+            Add More Projects
           </Button>
         </div>
 
