@@ -1,0 +1,61 @@
+/* #sidebar {
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 250px;
+}
+
+#sidebar .components li a {
+  display: block;
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: normal;
+  padding: 8px;
+}
+
+#sidebar .components {
+  padding-left: 0;
+  margin: 0;
+}
+
+#sidebar .components ul {
+  padding-left: 15px;
+}
+
+.main-layout {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.content-area {
+  flex: 1;
+  min-width: 0;
+}
+
+.sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  max-height: calc(100vh - 100px);
+  position: sticky;
+  top: 20px;
+  overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+      width: 250px;
+  }
+} */
+
+  
+   
+  .DepartmentsSidebar {
+    position: sticky; 
+    top: 0; 
+    height: 100vh; 
+    overflow-y: auto; 
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+  } 
+  

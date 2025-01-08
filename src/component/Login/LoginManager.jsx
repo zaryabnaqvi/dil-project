@@ -94,7 +94,7 @@ export const getDecodedUser = () => {
 export const handleSignOut = () => {
   return firebase.auth().signOut()
     .then(() => {
-        localStorage.removeItem('token');
+        localStorage.removeItem('user');
         const signedOutUser = {
             isSignedIn: false,
             name: '',

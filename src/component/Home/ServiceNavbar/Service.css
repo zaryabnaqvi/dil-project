@@ -43,3 +43,14 @@
 :root {
     --swiper-theme-color: #7053F1!important;
 }
+
+
+
+.no-border-input {
+    border: none !important; 
+    outline: none !important; 
+    box-shadow: none !important; 
+}
+
+
+

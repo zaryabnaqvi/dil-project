@@ -31,7 +31,7 @@ const Footer = () => {
 
                     <Col xs={12} md={4} className="d-flex flex-column align-items-center text-center text-md-start mb-3 mb-md-0">
                         <Typography className="fs-5">
-                            +923162416442 <br /> ujjalzaman@gmail.com
+                            +923162416442 <br /> sadia@gmail.com
                         </Typography>
                     </Col>
 
@@ -48,7 +48,7 @@ const Footer = () => {
                         <span className="animate-border"></span>
                     </div>
                     <p className="aboutUsDes">The Directorate of Industrial Liaison (DIL) at NED University bridges academia, industry, and government to foster innovation, internships, career counseling, and job placements, driving socio-economic growth.</p>
-
+                    {/* 
                     <ul className="socialIcons d-flex gap-3">
                         <li>
                             <Link onClick={scrollUP} to="/" >
@@ -70,15 +70,38 @@ const Footer = () => {
                                 <FontAwesomeIcon icon={faLinkedinIn} />
                             </a>
                         </li>
+                    </ul> */}
+                    <ul className="socialIcons d-flex flex-wrap justify-content-center gap-3 w-100">
+                        <li className="d-flex justify-content-center">
+                            <Link onClick={scrollUP} to="/" className="d-block">
+                                <FontAwesomeIcon icon={faFacebook} />
+                            </Link>
+                        </li>
+                        <li className="d-flex justify-content-center">
+                            <Link onClick={scrollUP} to="/" className="d-block">
+                                <FontAwesomeIcon icon={faTwitter} />
+                            </Link>
+                        </li>
+                        <li className="d-flex justify-content-center">
+                            <Link onClick={scrollUP} to="/" className="d-block">
+                                <FontAwesomeIcon icon={faInstagram} />
+                            </Link>
+                        </li>
+                        <li className="d-flex justify-content-center">
+                            <a href="https://www.linkedin.com/in/directorate-of-industrial-liaison-652b3a221/" target='blank' className="d-block">
+                                <FontAwesomeIcon icon={faLinkedinIn} />
+                            </a>
+                        </li>
                     </ul>
-                </Col>
 
+                </Col>
+                
                 <FooterCol key="2" menuItems={usefulLink} title="USEFUL LINK" />
                 <FooterCol key="3" menuItems={ourServices} title="OUR SERVICES" />
                 <FooterCol key="4" menuItems={otherLinks} title="OTHER LINKS" />
 
             </Row>
-            <p className="copyRight">Copyright &copy; 2021 <span className="fHighlight">Ujjal zaman</span>. All rights reserved.</p>
+            <p className="copyRight">Copyright &copy; 2021 <span className="fHighlight">Saadia Arshad</span>. All rights reserved.</p>
         </section>
     );
 };

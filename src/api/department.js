@@ -34,21 +34,45 @@ export const ShowDepartments =  async()=>{
     }
 }
 
-export const updateDepartment = async(id,data) => {
-    const response = await fetch(`${BASE_URL}/departments/update/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-    if(response.ok){
-        const data = await response.json();
-        return data;
-    } else{
-        throw new Error('Invalid credentials');
+// export const updateDepartment = async(id,data) => {
+//     const response = await fetch(`${BASE_URL}/departments/update/${id}`, {
+//         method: 'PUT',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(data)
+//     });
+//     if(response.ok){
+//         const data = await response.json();
+//         return data;
+//     } else{
+//         throw new Error('Invalid credentials');
+//     }
+// }
+
+export const updateDepartment = async (id, data) => {
+    try {
+        const response = await fetch(`${BASE_URL}/departments/update/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+            return await response.json();
+        } else {
+            // Parse server error message if available
+            const error = await response.json();
+            throw new Error(error.message || 'Failed to update department');
+        }
+    } catch (error) {
+        console.error('API Error:', error.message);
+        throw error;
     }
-}
+};
+
 
 export const deleteDepartment = async (id)=>{
     const response = await fetch(`${BASE_URL}/departments/delete/${id}`, {
@@ -146,3 +170,4 @@ export const getServiceByDepartmentId =  async(id)=>{
     
     }
 }
+

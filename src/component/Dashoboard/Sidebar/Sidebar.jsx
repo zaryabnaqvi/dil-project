@@ -7,16 +7,15 @@ import { faBuffer } from '@fortawesome/free-brands-svg-icons';
 import { useAppContext } from '../../../context';
 import Image from 'react-bootstrap/Image';
 import dilLogo from '../../../Assets/dilLogo.png';
-
+import { useNavigate } from 'react-router-dom';
 
 const Sidebar = ({setTitle}) => {
     const { state: { admin } } = useAppContext()
-
+    const navigate=useNavigate();
     return (
         <div>
-            <div className="sideBrand">
+            <div className="sideBrand" onClick={()=>navigate('/')}>
                 <div className="sideBrnIcon">
-                    {/* <FontAwesomeIcon icon={faBuffer}/> */}
                     <Image src={dilLogo} alt='logo' className="img-fluid" style={{ maxWidth: '50px', height: 'auto' }} />
                     </div>
                 <h2>DIL <span className="navHighlight">Portal</span></h2>
@@ -58,20 +57,7 @@ const Sidebar = ({setTitle}) => {
                         </>
                         :
                         <>
-                            {/* <li>
-                                <NavLink onClick={() => setTitle('Add Service')} activeclassname="activePage" exact to="/dashboard/DepartmentService">
-                                    <FontAwesomeIcon icon={faPlus} className="iconC"/> 
-                                    Add Department services
-                                </NavLink>
-                                
-                            </li>
-                            <li>
-                                <NavLink onClick={() => setTitle('Services')} activeclassname="activePage" exact to="/dashboard/ShowDepartmentService">
-                                    <FontAwesomeIcon icon={faList} className="iconC"/> 
-                                    Show Department services
-                                </NavLink>
-                                
-                            </li> */}
+
                             <li>
                                 <NavLink onClick={() => setTitle('Add Deparment')} activeclassname="activePage" to="/dashboard/department">
                                     <FontAwesomeIcon icon={faPlus} className="iconC"/> 
@@ -85,15 +71,21 @@ const Sidebar = ({setTitle}) => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink onClick={() => setTitle('Review')} activeclassname="activePage" to="/dashboard/review">
+                                <NavLink onClick={() => setTitle('Approval Services')} activeclassname="activePage" to="/dashboard/approval-services">
                                     <FontAwesomeIcon icon={faCommentAlt} className="iconC"/>
-                                     Approval Department
+                                     Approval Services
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink onClick={() => setTitle('Review')} activeclassname="activePage" to="/dashboard/review">
+                                <NavLink onClick={() => setTitle('Approval Industry')} activeclassname="activePage" to="/dashboard/approval-industry">
                                     <FontAwesomeIcon icon={faCommentAlt} className="iconC"/>
                                      Approval Industry
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink onClick={() => setTitle('Approval Department')} activeclassname="activePage" to="/dashboard/review">
+                                    <FontAwesomeIcon icon={faCommentAlt} className="iconC"/>
+                                     Approval Department
                                 </NavLink>
                             </li>
                         </>

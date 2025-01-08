@@ -7,7 +7,7 @@ import Footer from '../Footer/Footer';
 import HappyClient from '../HappyClient/HappyClient';
 import Header from '../Header/Header';
 import Pricing from '../Pricing/Pricing';
-import Reviews from '../Reviews/Reviews';
+// import Reviews from '../Reviews/Reviews';
 import Services from '../Services/Services';
 
 const Home = () => {
@@ -16,11 +16,11 @@ const Home = () => {
             <Header/>
             {/* <BuildTools/> */}
             <About/>
-            <Services/>
+            {/* <Services/> */}
             <BrowserSupport/>
             <HappyClient/>
             {/* <Pricing/> */}
-            <Reviews/>
+            {/* <Reviews/> */}
             <Contact/>
             <Footer/>
             {/* <ScrollTop/>   */}

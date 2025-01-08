@@ -25,6 +25,6 @@ export const otherLinks = [
 
 export const footerInfo = [
     {icon: faBuffer, info1: 'Directorate Industrial Liaison ', id: 1},
-    {icon: faMobileAlt, info1: '+923162416442', info2: 'ujjalzaman@gmail.com', id: 2},
+    {icon: faMobileAlt, info1: '+923162416442', info2: 'sadia@gmail.com', id: 2},
     {icon: faMapMarkedAlt, info1: 'NED University', info2: 'Karachi,Pakistan', id: 3}
 ];

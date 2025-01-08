@@ -15,8 +15,9 @@ import dilLogo from '../../../Assets/dilLogo.png';
 
 const NavBar = () => {
     const { state: { user } } = useAppContext()
-    console.log(user)
+    // console.log(user)
     const [isSticky, setSticky] = useState(false)
+   
 
     useEffect(() => {
         window.addEventListener("scroll", () => {
@@ -29,6 +30,7 @@ const NavBar = () => {
     }, [])
 
     const scrollTop = () => window['scrollTo']({ top: 0, behavior: 'smooth' });
+    
     return (
         <Navbar className={`navbar navbar-expand-lg navbar-light ${isSticky ? "navStyle" : "navDefault"}`} expand="lg">
             <Container>
@@ -44,17 +46,21 @@ const NavBar = () => {
                             <Nav.Link as={Link} to="/" className="nav-link" onClick={() => window['scrollTo']({ top: 0, behavior: 'smooth' })}>Home</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="#services" className="nav-link">Services</Nav.Link>
+                            <Nav.Link as={Link} to="/departments" className="nav-link">Departments</Nav.Link>                       
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link href="#testimonial" className="nav-link">Reviews</Nav.Link>
+                            <Nav.Link as={Link} to="/services" className="nav-link">Services</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link href="#contact" className="nav-link">Contact Us</Nav.Link>
                         </Nav.Item>
-                        <Nav.Item>
+                        { user?.email && (
+                            <Nav.Item>
+                                <Nav.Link as={Link} to="/dashboard/profile" className="nav-link">Dashboard</Nav.Link>
+                            </Nav.Item>)}
+                        {/* <Nav.Item>
                             <Nav.Link as={Link} to="/dashboard/profile" className="nav-link">Dashboard</Nav.Link>
-                        </Nav.Item>
+                        </Nav.Item> */}
                         <Nav.Item>
                             {
                                 user?.email ?

@@ -5,7 +5,9 @@ import './Department.css';
 import axios from 'axios';
 import ifoIcon from '../../../../Assets/info.svg';
 import { CreateDepartment } from '../../../../api/department';
-
+// import toast,Toast from 'react-hot-toast';
+import { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 const Department = () => {
     const [show, setShow] = useState(true);
     const [formData, setFormData] = useState({
@@ -27,6 +29,7 @@ const Department = () => {
         try {
             const data = await CreateDepartment(formData)
             console.log("Department created successfully", data);
+            toast.success("Department created successfully!");
             setShow(false);
             setFormData({
                 name: "",
@@ -45,6 +48,10 @@ const Department = () => {
 
     return (
         <div className="bookForm">
+             <Toaster
+                    position="top-center"
+                    reverseOrder={false}
+                />
             <Form onSubmit={handleSubmit}>
                 <Row>
                     <Col md={6} xs={12} className="my-3">

@@ -1,0 +1,52 @@
+.userReviewBox {
+    background: #f1ecff;
+    padding: 2.5rem 5rem;
+    border-radius: 0.6rem;
+    text-align: center;
+    min-height: 100vh;
+}
+.userReviewBox button {
+    margin: 0 0.5rem;
+}
+.reviewForm {
+    background: white;
+    box-shadow: 0 2px 5px 1px rgb(64 60 67 / 4%);
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 100%;
+    margin: 2.5rem 0;
+}
+.approval-industry-container {
+    padding: 20px;
+}
+
+.request-card {
+    background-color: #f9f9f9;
+}
+
+.status.approved {
+    color: green;
+    font-weight: bold;
+}
+
+.status.pending {
+    color: orange;
+    font-weight: bold;
+}
+
+.status.rejected {
+    color: red;
+    font-weight: bold;
+}
+
+.text-primary {
+    font-weight: 500;
+}
+
+.text-primary:hover {
+    text-decoration: underline;
+}
+
+.d-flex.gap-2 a {
+    margin-right: 5px;
+}
