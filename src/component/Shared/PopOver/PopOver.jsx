@@ -25,6 +25,7 @@ const PopOver = () => {
             toast.dismiss(loading);
             console.log(res);
             dispatch({type: SET_USER, payload: res})
+            window.dispatchEvent(new Event('user-logout'));
             toast.error('Logged Out!');
         })
     }

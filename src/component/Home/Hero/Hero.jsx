@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import Typed from 'react-typed';
 import dilimg from '../../../Assets/dilimg.jpg'
-
+import { Toaster } from 'react-hot-toast';
 const Hero = () => {
     const theme = useTheme();
     const isMd = useMediaQuery(theme.breakpoints.up('md'), {
@@ -17,6 +17,7 @@ const Hero = () => {
 
     return (
         <Grid container spacing={4}>
+            <Toaster position="top-center" reverseOrder={false} /> 
             <Grid item container xs={12} md={6} alignItems={'center'}>
                 <Box data-aos={isMd ? 'fade-right' : 'fade-up'} paddingLeft={isMd && 2} p={4} >
                     <Box marginBottom={2}>

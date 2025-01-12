@@ -25,7 +25,7 @@ const Form = () => {
   const handleResponse = (res) => {
     dispatch({type: SET_USER, payload: res})
     if(!res.error){
-      toast.success('Successfully Logged In!');
+      // toast.success('Successfully Logged In!');
       history(from);
     }
     if (true) {

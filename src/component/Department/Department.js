@@ -3,7 +3,7 @@ import Footer from "../Home/Footer/Footer";
 import NavBar from "../Shared/Navbar/Navbar";
 import { Card, Button, ListGroup, Spinner, Accordion } from "react-bootstrap";
 import "./Department.css"
-
+import { Toaster } from "react-hot-toast";
 const Departments = () => {
   const [isLoading, setIsLoading] = useState(true); // For departments
   const [isServicesLoading, setIsServicesLoading] = useState(false); // For services
@@ -68,6 +68,7 @@ const Departments = () => {
 
   return (
     <main>
+      <Toaster position="top-center" reverseOrder={false} /> 
       <NavBar />
       {isLoading ? (
         <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>

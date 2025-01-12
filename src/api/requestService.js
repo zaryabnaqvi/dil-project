@@ -12,7 +12,9 @@ export const RequestService =  async(body)=>{
         const data = await response.json();
         return data;
     }else{
-        throw new Error('Error');
+        const errorData = await response.json();
+            console.error("API Error:", errorData); // Log detailed error response
+            throw new Error(errorData.message || "Error");
     
     }
 }
@@ -32,22 +34,6 @@ export const RequestService =  async(body)=>{
         
         }
     }
-
-    // export const updateServiceStatus = async(id,data) => {
-    //     const response = await fetch(`${BASE_URL}/service-requests/status/${id}`, {
-    //         method: 'PUT',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(data)
-    //     });
-    //     if(response.ok){
-    //         const data = await response.json();
-    //         return data;
-    //     } else{
-    //         throw new Error('Error');
-    //     }
-    // }
 
     export const updateServiceStatus = async (id, data) => {
         const response = await fetch(`${BASE_URL}/service-requests/status/${id}`, {
